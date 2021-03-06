@@ -2,4 +2,11 @@
     <string name="app_name">The Sports DB</string>
     <string name="menu_home">Home</string>
     <string name="menu_favorite">Favorite</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="image_description">Image Description</string>
+    <string name="text_primary">Text Primary</string>
+    <string name="subtitle">Subtitle</string>
+    <string name="description">Description</string>
+    <string name="text_subtitle">Subtitle</string>
 </resources>
