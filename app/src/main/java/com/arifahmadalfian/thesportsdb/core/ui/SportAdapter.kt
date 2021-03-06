@@ -40,10 +40,10 @@ class SportAdapter: RecyclerView.Adapter<SportAdapter.ListViewHolder>() {
         fun bind(data: Sport) {
             with(binding) {
                 Glide.with(itemView.context)
-                        .load(data.image)
+                        .load(data.strSportThumb)
                         .into(ivItemImage)
-                tvItemTitle.text = data.name
-                tvItemSubtitle.text = data.address
+                tvItemTitle.text = data.strSport
+                tvItemSubtitle.text = data.strFormat
             }
         }
 
