@@ -1,14 +1,10 @@
-package com.arifahmadalfian.thesportsdb.core.domain.model
+package com.arifahmadalfian.thesportsdb.core.data.source.remote.response
 
-import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
-
-@Parcelize
-data class Sport(
+data class SportResponse(
         var idSport: String,
         var strSport: String,
         var strSportDescription: String,
         var strFormat: String,
         var strSportThumb: String,
         var isFavorite: Boolean = false
-): Parcelable
+)
