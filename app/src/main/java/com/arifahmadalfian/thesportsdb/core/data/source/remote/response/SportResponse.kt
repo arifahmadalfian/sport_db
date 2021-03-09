@@ -5,20 +5,20 @@ import com.google.gson.annotations.SerializedName
 data class SportResponse(
 
 	@field:SerializedName("idSport")
-	val idSport: String? = null,
+	val idSport: String,
 
 	@field:SerializedName("strFormat")
-	val strFormat: String? = null,
+	val strFormat: String,
 
 	@field:SerializedName("strSport")
-	val strSport: String? = null,
+	val strSport: String,
 
 	@field:SerializedName("strSportThumb")
-	val strSportThumb: String? = null,
+	val strSportThumb: String,
 
 	@field:SerializedName("strSportThumbGreen")
-	val strSportThumbGreen: String? = null,
+	val strSportThumbGreen: String,
 
 	@field:SerializedName("strSportDescription")
-	val strSportDescription: String? = null
+	val strSportDescription: String,
 )
