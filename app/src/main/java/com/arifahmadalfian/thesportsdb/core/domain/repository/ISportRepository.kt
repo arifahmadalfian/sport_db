@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import com.arifahmadalfian.thesportsdb.core.data.Resource
 import com.arifahmadalfian.thesportsdb.core.domain.model.Sport
 
-interface SportRepository {
+interface ISportRepository {
     fun getAllSport(): LiveData<Resource<List<Sport>>>
 
     fun getFavoriteSport(): LiveData<List<Sport>>
