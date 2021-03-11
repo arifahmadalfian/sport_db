@@ -34,14 +34,13 @@ object DataMapper {
         }
     }
 
-    fun mapDomainToEntitie(input: Sport) {
-        SportEntity (
-                idSport = input.idSport,
-                strSport = input.strSport,
-                strSportDescription = input.strSportDescription,
-                strFormat = input.strFormat,
-                strSportThumb = input.strSportThumb,
-                isFavorite = input.isFavorite
-        )
-    }
+    fun mapDomainToEntity(input: Sport) = SportEntity (
+            idSport = input.idSport,
+            strSport = input.strSport,
+            strSportDescription = input.strSportDescription,
+            strFormat = input.strFormat,
+            strSportThumb = input.strSportThumb,
+            isFavorite = input.isFavorite
+            )
+
 }
