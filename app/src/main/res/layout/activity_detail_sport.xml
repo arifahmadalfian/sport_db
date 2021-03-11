@@ -20,7 +20,7 @@
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
             app:contentScrim="?attr/colorPrimary"
-            app:layout_scrollFlags="exitUntilCollapsed||scroll"
+            app:layout_scrollFlags="exitUntilCollapsed|scroll"
             app:toolbarId="@+id/toolbar">
 
             <ImageView
