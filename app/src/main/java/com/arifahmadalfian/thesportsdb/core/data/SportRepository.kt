@@ -10,6 +10,8 @@ import com.arifahmadalfian.thesportsdb.core.domain.model.Sport
 import com.arifahmadalfian.thesportsdb.core.domain.repository.ISportRepository
 import com.arifahmadalfian.thesportsdb.core.utils.AppExecutors
 import com.arifahmadalfian.thesportsdb.core.utils.DataMapper
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 
 class SportRepository private constructor(
         private val remoteDataSource: RemoteDataSource,
@@ -31,34 +33,30 @@ class SportRepository private constructor(
                 }
     }
 
-    override fun getAllSport(): LiveData<Resource<List<Sport>>> {
+    override fun getAllSport(): Flow<Resource<List<Sport>>> {
         return object: NetworkBoundResource<List<Sport>, List<SportResponse>>(appExecutors) {
-            override fun loadFromDB(): LiveData<List<Sport>> {
-                return Transformations.map(localDataSource.getAllSport()){
-                    DataMapper.mapEntitiesToDomain(it)
-                }
+            override fun loadFromDB(): Flow<List<Sport>> {
+                return localDataSource.getAllSport().map { DataMapper.mapEntitiesToDomain(it) }
             }
 
             override fun shouldFetch(data: List<Sport>?): Boolean {
                 return data == null || data.isEmpty()
             }
 
-            override fun createCall(): LiveData<ApiResponse<List<SportResponse>>> {
+            override suspend fun createCall(): Flow<ApiResponse<List<SportResponse>>> {
                 return remoteDataSource.getAllSports()
             }
 
-            override fun saveCallResult(data: List<SportResponse>) {
+            override suspend fun saveCallResult(data: List<SportResponse>) {
                 val sportList = DataMapper.mapResponsesToEntities(data)
                 localDataSource.insertSport(sportList)
             }
 
-        }.asLiveData()
+        }.asFlow()
     }
 
-    override fun getFavoriteSport(): LiveData<List<Sport>> {
-        return Transformations.map(localDataSource.getFavoriteSport()) {
-            DataMapper.mapEntitiesToDomain(it)
-        }
+    override fun getFavoriteSport(): Flow<List<Sport>> {
+        return localDataSource.getFavoriteSport().map { DataMapper.mapEntitiesToDomain(it) }
     }
 
     override fun setFavoriteSport(sport: Sport, state: Boolean) {
