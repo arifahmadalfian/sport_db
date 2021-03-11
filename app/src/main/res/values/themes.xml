@@ -14,7 +14,12 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.Sport.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.TheSportsDB.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
 
-    <style name="Theme.Sport.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Theme.TheSportsDB.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.TheSportsDB.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

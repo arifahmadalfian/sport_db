@@ -4,14 +4,16 @@
     <string name="menu_favorite">Favorite</string>
 
     <string name="favorite">Favorite</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="image_description">Image Description</string>
     <string name="text_primary">Text Primary</string>
     <string name="subtitle">Subtitle</string>
     <string name="description">Description</string>
     <string name="text_subtitle">Subtitle</string>
+    <string name="title_activity_detail_home">DetailHomeActivity</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="something_wrong">Terjadi kesalahan cuyy</string>
+    <string name="data_tidak_ada_boss">Data Tidak Ada boss</string>
+    <string name="error_boss">Error boss</string>
 </resources>

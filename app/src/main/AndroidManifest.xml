@@ -11,8 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TheSportsDB">
-        <activity android:name=".detail.DetailSportActivity"></activity>
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".detail.DetailSportActivity"
+            android:theme="@style/Theme.TheSportsDB.NoActionBar"
+            android:label="@string/title_activity_detail_home"/>
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/Theme.TheSportsDB.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
