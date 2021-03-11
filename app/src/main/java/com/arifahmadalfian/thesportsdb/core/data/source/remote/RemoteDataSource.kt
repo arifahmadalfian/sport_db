@@ -13,6 +13,16 @@ import retrofit2.Response
 
 class RemoteDataSource private constructor(private val apiService: ApiService) {
 
+    companion object {
+        @Volatile
+        private var instance: RemoteDataSource? = null
+
+        fun getInstance(service: ApiService): RemoteDataSource =
+                instance ?: synchronized(this) {
+                    instance ?: RemoteDataSource(service)
+                }
+    }
+
    fun getAllSports(): LiveData<ApiResponse<List<SportResponse>>> {
        val resultData = MutableLiveData<ApiResponse<List<SportResponse>>>()
 

@@ -6,6 +6,15 @@ import com.arifahmadalfian.thesportsdb.core.data.source.local.room.SportDao
 
 class LocalDataSource private constructor(private val sportDao: SportDao) {
 
+    companion object {
+        private var instance: LocalDataSource? = null
+
+        fun getInstance(sportDao: SportDao): LocalDataSource =
+                instance ?: synchronized(this) {
+                    instance ?: LocalDataSource(sportDao)
+                }
+    }
+
     fun getAllSport(): LiveData<List<SportEntity>> = sportDao.getAllSport()
 
     fun getFavoriteSport(): LiveData<List<SportEntity>> = sportDao.getFavoriteSport()
