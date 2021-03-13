@@ -4,16 +4,7 @@ import com.arifahmadalfian.thesportsdb.core.data.source.local.entity.SportEntity
 import com.arifahmadalfian.thesportsdb.core.data.source.local.room.SportDao
 import kotlinx.coroutines.flow.Flow
 
-class LocalDataSource private constructor(private val sportDao: SportDao) {
-
-    companion object {
-        private var instance: LocalDataSource? = null
-
-        fun getInstance(sportDao: SportDao): LocalDataSource =
-                instance ?: synchronized(this) {
-                    instance ?: LocalDataSource(sportDao)
-                }
-    }
+class LocalDataSource(private val sportDao: SportDao) {
 
     fun getAllSport(): Flow<List<SportEntity>> = sportDao.getAllSport()
 

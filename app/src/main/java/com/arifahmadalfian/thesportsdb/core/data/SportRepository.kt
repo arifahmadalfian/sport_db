@@ -13,25 +13,11 @@ import com.arifahmadalfian.thesportsdb.core.utils.DataMapper
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-class SportRepository private constructor(
+class SportRepository(
         private val remoteDataSource: RemoteDataSource,
         private val localDataSource: LocalDataSource,
         private val appExecutors: AppExecutors
 ): ISportRepository {
-
-    companion object {
-        @Volatile
-        private var instance: SportRepository? = null
-
-        fun getInstance(
-                remoteData: RemoteDataSource,
-                localData: LocalDataSource,
-                appExecutors: AppExecutors
-        ): SportRepository =
-                instance ?: synchronized(this) {
-                    instance ?: SportRepository(remoteData, localData, appExecutors)
-                }
-    }
 
     override fun getAllSport(): Flow<Resource<List<Sport>>> {
         return object: NetworkBoundResource<List<Sport>, List<SportResponse>>(appExecutors) {
