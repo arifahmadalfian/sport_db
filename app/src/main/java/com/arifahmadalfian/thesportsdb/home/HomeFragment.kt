@@ -6,18 +6,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.arifahmadalfian.thesportsdb.R
 import com.arifahmadalfian.thesportsdb.core.data.Resource
 import com.arifahmadalfian.thesportsdb.core.ui.SportAdapter
-import com.arifahmadalfian.thesportsdb.core.ui.ViewModelFactory
 import com.arifahmadalfian.thesportsdb.databinding.FragmentHomeBinding
 import com.arifahmadalfian.thesportsdb.detail.DetailSportActivity
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
+    private val homeViewModel: HomeViewModel by viewModel()
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
@@ -41,9 +40,6 @@ class HomeFragment : Fragment() {
                 intent.putExtra(DetailSportActivity.EXTRA_DATA, selectData)
                 startActivity(intent)
             }
-
-            val factory = ViewModelFactory.getInstance(requireActivity())
-            homeViewModel = ViewModelProvider(this, factory) [HomeViewModel::class.java]
 
             homeViewModel.sport.observe(viewLifecycleOwner, { sport ->
                 if (sport != null) {

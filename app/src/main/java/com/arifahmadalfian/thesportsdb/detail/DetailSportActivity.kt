@@ -3,12 +3,11 @@ package com.arifahmadalfian.thesportsdb.detail
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.ViewModelProvider
 import com.arifahmadalfian.thesportsdb.R
 import com.arifahmadalfian.thesportsdb.core.domain.model.Sport
-import com.arifahmadalfian.thesportsdb.core.ui.ViewModelFactory
 import com.arifahmadalfian.thesportsdb.databinding.ActivityDetailSportBinding
 import com.bumptech.glide.Glide
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class DetailSportActivity : AppCompatActivity() {
 
@@ -16,7 +15,7 @@ class DetailSportActivity : AppCompatActivity() {
         const val EXTRA_DATA = "extra_data"
     }
 
-    private lateinit var detailSportViewModel: DetailSportViewModel
+    private val detailSportViewModel: DetailSportViewModel by viewModel()
     private lateinit var binding: ActivityDetailSportBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,9 +24,6 @@ class DetailSportActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
-
-        val factory = ViewModelFactory.getInstance(this)
-        detailSportViewModel = ViewModelProvider(this, factory)[DetailSportViewModel::class.java]
 
         val detailSport = intent.getParcelableExtra<Sport>(EXTRA_DATA)
         showDetailSport(detailSport)

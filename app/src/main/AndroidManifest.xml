@@ -10,7 +10,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.TheSportsDB">
+        android:theme="@style/Theme.TheSportsDB"
+        android:name=".MyApplication">
         <activity
             android:name=".detail.DetailSportActivity"
             android:theme="@style/Theme.TheSportsDB.NoActionBar"
