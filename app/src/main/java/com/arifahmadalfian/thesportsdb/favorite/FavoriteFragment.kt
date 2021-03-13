@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.arifahmadalfian.thesportsdb.core.ui.SportAdapter
 import com.arifahmadalfian.thesportsdb.databinding.FragmentFavoriteBinding
