@@ -4,6 +4,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import com.arifahmadalfian.thesportsdb.core.domain.usecase.SportUseCase
 
-class FavoriteViewModel(private val sportUseCase: SportUseCase): ViewModel() {
+class FavoriteViewModel(sportUseCase: SportUseCase): ViewModel() {
     val favoriteSport = sportUseCase.getFavoriteSport().asLiveData()
 }
