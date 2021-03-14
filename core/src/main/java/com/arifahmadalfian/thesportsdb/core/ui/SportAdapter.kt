@@ -4,9 +4,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.arifahmadalfian.thesportsdb.R
+import com.arifahmadalfian.thesportsdb.core.R
+import com.arifahmadalfian.thesportsdb.core.databinding.ItemListSportBinding
 import com.arifahmadalfian.thesportsdb.core.domain.model.Sport
-import com.arifahmadalfian.thesportsdb.databinding.ItemListSportBinding
 import com.bumptech.glide.Glide
 
 class SportAdapter: RecyclerView.Adapter<SportAdapter.ListViewHolder>() {
