@@ -2,18 +2,15 @@ package com.arifahmadalfian.thesportsdb.di
 
 import com.arifahmadalfian.thesportsdb.core.domain.usecase.SportInteractor
 import com.arifahmadalfian.thesportsdb.core.domain.usecase.SportUseCase
-import com.arifahmadalfian.thesportsdb.detail.DetailSportViewModel
-import com.arifahmadalfian.thesportsdb.favorite.FavoriteViewModel
-import com.arifahmadalfian.thesportsdb.home.HomeViewModel
-import org.koin.android.viewmodel.dsl.viewModel
-import org.koin.dsl.module
+import dagger.Binds
+import dagger.Module
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ActivityComponent
 
-val useCaseModule = module {
-    factory<SportUseCase> { SportInteractor(get()) }
-}
+@Module
+@InstallIn(ActivityComponent::class)
+abstract class AppModule {
 
-val viewModelModule = module {
-    viewModel { HomeViewModel(get()) }
-    viewModel { FavoriteViewModel(get()) }
-    viewModel { DetailSportViewModel(get()) }
+    @Binds
+    abstract fun provideSportUseCase(sportInteractor: SportInteractor): SportUseCase
 }

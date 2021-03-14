@@ -3,8 +3,9 @@ package com.arifahmadalfian.thesportsdb.core.data.source.local
 import com.arifahmadalfian.thesportsdb.core.data.source.local.entity.SportEntity
 import com.arifahmadalfian.thesportsdb.core.data.source.local.room.SportDao
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
-class LocalDataSource(private val sportDao: SportDao) {
+class LocalDataSource @Inject constructor(private val sportDao: SportDao) {
 
     fun getAllSport(): Flow<List<SportEntity>> = sportDao.getAllSport()
 

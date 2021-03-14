@@ -10,8 +10,9 @@ import com.arifahmadalfian.thesportsdb.core.utils.AppExecutors
 import com.arifahmadalfian.thesportsdb.core.utils.DataMapper
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import javax.inject.Inject
 
-class SportRepository(
+class SportRepository @Inject constructor(
         private val remoteDataSource: RemoteDataSource,
         private val localDataSource: LocalDataSource,
         private val appExecutors: AppExecutors

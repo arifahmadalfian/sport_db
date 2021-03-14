@@ -10,7 +10,9 @@ import com.arifahmadalfian.thesportsdb.databinding.ActivityMainBinding
 import com.arifahmadalfian.thesportsdb.favorite.FavoriteFragment
 import com.arifahmadalfian.thesportsdb.home.HomeFragment
 import com.google.android.material.navigation.NavigationView
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var binding: ActivityMainBinding

@@ -6,15 +6,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.arifahmadalfian.thesportsdb.core.ui.SportAdapter
 import com.arifahmadalfian.thesportsdb.databinding.FragmentFavoriteBinding
 import com.arifahmadalfian.thesportsdb.detail.DetailSportActivity
-import org.koin.android.viewmodel.ext.android.viewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class FavoriteFragment : Fragment() {
 
-    private val favoriteViewModel: FavoriteViewModel by viewModel()
+    private val favoriteViewModel: FavoriteViewModel by viewModels()
 
     private var _binding: FragmentFavoriteBinding? = null
     private val binding get() = _binding!!
@@ -39,7 +42,7 @@ class FavoriteFragment : Fragment() {
                 startActivity(intent)
             }
 
-            favoriteViewModel.favoriteSport.observe(viewLifecycleOwner, { dataSport ->
+            favoriteViewModel.favoriteSport.observe(viewLifecycleOwner, Observer { dataSport ->
                 sportAdapter.setData(dataSport)
                 binding.viewEmpty.root.visibility = if (dataSport.isNotEmpty()) View.GONE else View.VISIBLE
             })
