@@ -1,5 +1,7 @@
 package com.arifahmadalfian.thesportsdb
 
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
@@ -7,7 +9,6 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import com.arifahmadalfian.thesportsdb.databinding.ActivityMainBinding
-import com.arifahmadalfian.thesportsdb.favorite.FavoriteFragment
 import com.arifahmadalfian.thesportsdb.home.HomeFragment
 import com.google.android.material.navigation.NavigationView
 import dagger.hilt.android.AndroidEntryPoint
@@ -53,8 +54,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 title = getString(R.string.app_name)
             }
             R.id.nav_favorite -> {
-                fragment = FavoriteFragment()
-                title = getString(R.string.favorite)
+                val uri = Uri.parse("thesportsdb://favorite")
+                startActivity(Intent(Intent.ACTION_VIEW, uri))
             }
         }
         if (fragment != null) {
