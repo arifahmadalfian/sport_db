@@ -7,7 +7,7 @@ import com.arifahmadalfian.thesportsdb.R
 import com.arifahmadalfian.thesportsdb.core.domain.model.Sport
 import com.arifahmadalfian.thesportsdb.databinding.ActivityDetailSportBinding
 import com.bumptech.glide.Glide
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DetailSportActivity : AppCompatActivity() {
 

@@ -12,7 +12,7 @@ import com.arifahmadalfian.thesportsdb.core.data.Resource
 import com.arifahmadalfian.thesportsdb.core.ui.SportAdapter
 import com.arifahmadalfian.thesportsdb.databinding.FragmentHomeBinding
 import com.arifahmadalfian.thesportsdb.detail.DetailSportActivity
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment() {
 

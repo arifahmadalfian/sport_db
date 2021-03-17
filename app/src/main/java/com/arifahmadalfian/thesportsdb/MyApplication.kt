@@ -8,14 +8,15 @@ import com.arifahmadalfian.thesportsdb.di.useCaseModule
 import com.arifahmadalfian.thesportsdb.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
+import org.koin.androidx.fragment.koin.fragmentFactory
 import org.koin.core.context.startKoin
-import org.koin.core.logger.Level
 
 class MyApplication: Application() {
     override fun onCreate() {
         super.onCreate()
         startKoin {
-            androidLogger(Level.NONE)
+            fragmentFactory()
+            androidLogger()
             androidContext(this@MyApplication)
             modules(
                 listOf(

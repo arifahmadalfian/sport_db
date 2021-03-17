@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.arifahmadalfian.thesportsdb.core.ui.SportAdapter
 import com.arifahmadalfian.thesportsdb.detail.DetailSportActivity
 import com.arifahmadalfian.thesportsdb.favorite.databinding.ActivityFavoriteBinding
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
 
 class FavoriteActivity: AppCompatActivity() {
