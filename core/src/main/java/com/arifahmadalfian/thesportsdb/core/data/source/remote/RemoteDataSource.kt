@@ -8,9 +8,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
-import javax.inject.Inject
 
-class RemoteDataSource @Inject constructor(private val apiService: ApiService) {
+class RemoteDataSource(private val apiService: ApiService) {
 
    suspend fun getAllSports(): Flow<ApiResponse<List<SportResponse>>> {
       // get data from remote api

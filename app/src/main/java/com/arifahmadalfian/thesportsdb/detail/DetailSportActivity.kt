@@ -2,22 +2,20 @@ package com.arifahmadalfian.thesportsdb.detail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import com.arifahmadalfian.thesportsdb.R
 import com.arifahmadalfian.thesportsdb.core.domain.model.Sport
 import com.arifahmadalfian.thesportsdb.databinding.ActivityDetailSportBinding
 import com.bumptech.glide.Glide
-import dagger.hilt.android.AndroidEntryPoint
+import org.koin.android.viewmodel.ext.android.viewModel
 
-@AndroidEntryPoint
 class DetailSportActivity : AppCompatActivity() {
 
     companion object {
         const val EXTRA_DATA = "extra_data"
     }
 
-    private val detailSportViewModel: DetailSportViewModel by viewModels()
+    private val detailSportViewModel: DetailSportViewModel by viewModel()
     private lateinit var binding: ActivityDetailSportBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

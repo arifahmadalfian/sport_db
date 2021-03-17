@@ -3,20 +3,17 @@ package com.arifahmadalfian.thesportsdb.favorite
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.arifahmadalfian.thesportsdb.core.ui.SportAdapter
 import com.arifahmadalfian.thesportsdb.detail.DetailSportActivity
-import com.arifahmadalfian.thesportsdb.di.DynamicFeatureDependencies
 import com.arifahmadalfian.thesportsdb.favorite.databinding.ActivityFavoriteBinding
-import dagger.hilt.android.AndroidEntryPoint
-import dagger.hilt.android.EntryPointAccessors
+import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.core.context.loadKoinModules
 
-@AndroidEntryPoint
 class FavoriteActivity: AppCompatActivity() {
 
-    private val favoriteViewModel: FavoriteViewModels by viewModels()
+    private val favoriteViewModel: FavoriteViewModels by viewModel()
 
     private var _binding: ActivityFavoriteBinding? = null
     private val binding get() = _binding!!
@@ -24,20 +21,11 @@ class FavoriteActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        DaggerFavoriteComponent.builder()
-            .context(this)
-            .appDependencies(
-                EntryPointAccessors.fromApplication(
-                    applicationContext,
-                    DynamicFeatureDependencies::class.java
-                )
-            )
-            .build()
-            .inject(this)
-
         super.onCreate(savedInstanceState)
         _binding = ActivityFavoriteBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        loadKoinModules(favoriteModule)
 
         supportActionBar?.title = "Favorite Sports"
 
