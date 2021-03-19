@@ -49,6 +49,6 @@ val networkModule = module {
 val repositoryModule = module {
     single { LocalDataSource(get()) }
     single { RemoteDataSource(get()) }
-    factory { AppExecutors }
+    factory { AppExecutors() }
     single<ISportRepository> { SportRepository(get(), get(), get()) }
 }
