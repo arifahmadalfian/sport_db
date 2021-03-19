@@ -50,7 +50,5 @@ val repositoryModule = module {
     single { LocalDataSource(get()) }
     single { RemoteDataSource(get()) }
     factory { AppExecutors }
-    single<ISportRepository> {
-        SportRepository(get(), get(), get())
-    }
+    single<ISportRepository> { SportRepository(get(), get(), get()) }
 }

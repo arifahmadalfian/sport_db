@@ -14,7 +14,7 @@
         tools:listitem="@layout/item_list_sport"/>
 
     <include
-        android:id="@+id/view_empty"
+        android:id="@+id/view_empt"
         layout="@layout/view_empty"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/rv_sport"

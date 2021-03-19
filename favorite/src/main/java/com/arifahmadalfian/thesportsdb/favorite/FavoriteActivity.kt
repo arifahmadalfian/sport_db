@@ -13,7 +13,7 @@ import org.koin.core.context.loadKoinModules
 
 class FavoriteActivity: AppCompatActivity() {
 
-    private val favoriteViewModel: FavoriteViewModels by viewModel()
+    private val favoriteViewModel: FavoriteViewModel by viewModel()
 
     private var _binding: ActivityFavoriteBinding? = null
     private val binding get() = _binding!!
@@ -42,7 +42,7 @@ class FavoriteActivity: AppCompatActivity() {
 
         favoriteViewModel.favoriteSport.observe(this, { dataSport ->
             sportAdapter.setData(dataSport)
-            binding.viewEmpty.root.visibility = if (dataSport.isNotEmpty()) View.GONE else View.VISIBLE
+            binding.viewEmpt.root.visibility = if (dataSport.isNotEmpty()) View.GONE else View.VISIBLE
         })
 
         with(binding.rvSport) {
