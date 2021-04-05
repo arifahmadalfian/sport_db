@@ -33,6 +33,9 @@ buildscript {
     ext.sqlite_ktx_version = "2.1.0"
     ext.leakcanary_version = "2.4"
 
+    ext.mockito_version = '3.6.0'
+    ext.mockito_kotlin_version = '2.2.0'
+
 
     repositories {
         google()
