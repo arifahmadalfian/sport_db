@@ -29,6 +29,8 @@ buildscript {
     ext.koin_version = "2.2.2"
 
     ext.lottie_version = "3.4.1"
+    ext.sqlcipher_version = "4.4.0"
+    ext.sqlite_ktx_version = "2.1.0"
 
 
     repositories {

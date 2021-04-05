@@ -8,6 +8,8 @@ import com.arifahmadalfian.thesportsdb.core.data.source.remote.RemoteDataSource
 import com.arifahmadalfian.thesportsdb.core.data.source.remote.network.ApiService
 import com.arifahmadalfian.thesportsdb.core.domain.repository.ISportRepository
 import com.arifahmadalfian.thesportsdb.core.utils.AppExecutors
+import net.sqlcipher.database.SQLiteDatabase
+import net.sqlcipher.database.SupportFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
@@ -21,10 +23,12 @@ val databaseModule = module {
         get<SportDatabase>().sportDao()
     }
     single {
+        val passphrase: ByteArray = SQLiteDatabase.getBytes("sports".toCharArray())
+        val factory = SupportFactory(passphrase)
         Room.databaseBuilder(
             androidContext(),
             SportDatabase::class.java, "Sport.db"
-        ).fallbackToDestructiveMigration().build()
+        ).fallbackToDestructiveMigration().openHelperFactory(factory).build()
     }
 }
 
