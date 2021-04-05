@@ -39,6 +39,9 @@ dependencies {
     implementation "net.zetetic:android-database-sqlcipher:$sqlcipher_version"
     implementation "androidx.sqlite:sqlite-ktx:$sqlite_ktx_version"
 
+    // leakcanary
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:$leakcanary_version"
+
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation "androidx.test.ext:junit:$androidx_junit_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
