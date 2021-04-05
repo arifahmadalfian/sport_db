@@ -16,11 +16,12 @@ class DetailSportActivity : AppCompatActivity() {
     }
 
     private val detailSportViewModel: DetailSportViewModel by viewModel()
-    private lateinit var binding: ActivityDetailSportBinding
+    private var _binding: ActivityDetailSportBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityDetailSportBinding.inflate(layoutInflater)
+        _binding = ActivityDetailSportBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
@@ -55,5 +56,10 @@ class DetailSportActivity : AppCompatActivity() {
             binding.fab.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_not_favorite_white))
         }
 
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }
